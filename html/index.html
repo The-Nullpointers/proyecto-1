@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<!--
+INTEGRANTES - The  NullPointer's Team
+Luis Andrés Aguilar Bolaños 2 0847 0264
+Farlem Alberto Vega Campos 2 0838 0312
+Sebastián José Brenes Murillo 2 0816 0786
+Adrián Fonseca fuentes 1 1850 0413
+Luis David Zeledón Goméz 2 0834 0603
+-->
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <title>Avatar Creator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <h1>Avatar Creation</h1>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </nav>
+    </header>
+    
+    <!-- Main Content -->
+    <main>
+      <h2>Create Your Avatar</h2>
+      <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+        
+        <label for="bio">Bio:</label>
+        <textarea id="bio" name="bio" rows="5" required></textarea>
+        
+        <button type="submit">Create Avatar</button>
+      </form>
+      
+      <img src="../images/placeholder.png" alt="Avatar Preview">
+    </main>
+    
+    
+    <footer>
+      <p>&copy; 2023 The NullPointer's Avatar Creator.</p>
+    </footer>
+  </body>
+</html>
