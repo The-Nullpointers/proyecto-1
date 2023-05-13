@@ -7,16 +7,18 @@ function changeHairImage() {
         hairImage.setAttribute("src", "../images/vacia.png");
     }else if(hairStyle == "Cabello Blanco Corto"){
         hairImage.setAttribute("src", "../images/cabello/hombre/pelo-blanco.png");
-    }else if(hairStyle == "Cabello Hippie Corto"){
+    }else if(hairStyle == "Cabello Hippie Largo"){
         hairImage.setAttribute("src", "../images/cabello/hombre/hippie.png");
     }else if(hairStyle == "Cabello Beige Corto"){
         hairImage.setAttribute("src", "../images/cabello/hombre/pelo-beige.png");
     }else if(hairStyle == "Cabello Rubio Corto"){
         hairImage.setAttribute("src", "../images/cabello/hombre/rubio.png");
-    }else if(hairStyle == ""){
-        hairImage.setAttribute("src", "../images/cabello/hombre/pelo-blanco.png");
-    }else if(hairStyle == ""){
-        hairImage.setAttribute("src", "../images/cabello/hombre/pelo-blanco.png");
+    }else if(hairStyle == "Cabello Rojo Largo"){
+        hairImage.setAttribute("src", "../images/cabello/mujer/pelo-rojo.png");
+    }else if(hairStyle == "Cabello Rosa Corto"){
+        hairImage.setAttribute("src", "../images/cabello/mujer/pelo-rosa.png");
+    }else if(hairStyle == "Cabello Trenzas Corto"){
+        hairImage.setAttribute("src", "../images/cabello/mujer/trenzas.png");
     }
     
 }
@@ -82,6 +84,49 @@ function changeClothesImage() {
     }else if(clothesStyle == "Abrigo"){
         clothesImage.setAttribute("src", "../images/cuerpo/ambos/abrigo.png");
     }
+    else if(clothesStyle == "Abrigo Grueso"){
+        clothesImage.setAttribute("src", "../images/cuerpo/ambos/abrigo-grueso.png");
+    }
+    else if(clothesStyle == "Disfraz de colores"){
+        clothesImage.setAttribute("src", "../images/cuerpo/ambos/disfraz-colores.png");
+    }
+    else if(clothesStyle == "Mommia"){
+        clothesImage.setAttribute("src", "../images/cuerpo/ambos/EL-REAL.png");
+    }
+    else if(clothesStyle == "Oveja"){
+        clothesImage.setAttribute("src", "../images/cuerpo/ambos/oveja.png");
+    }
+    else if(clothesStyle == "Traje de Bufon"){
+        clothesImage.setAttribute("src", "../images/cuerpo/ambos/traje-bufon.png");
+    }
+    else if(clothesStyle == "Traje de Ninja Agua"){
+        clothesImage.setAttribute("src", "../images/cuerpo/ambos/traje-ninja-agua.png");
+    }
+    else if(clothesStyle == "Camiseta de Musica"){
+        clothesImage.setAttribute("src", "../images/cuerpo/hombre/camiseta-musica.png");
+    }
+    else if(clothesStyle == "Camiseta Verde"){
+        clothesImage.setAttribute("src", "../images/cuerpo/hombre/camiseta-verde.png");
+    }
+    else if(clothesStyle == "Traje"){
+        clothesImage.setAttribute("src", "../images/cuerpo/hombre/traje.png");
+    }
+    else if(clothesStyle == "Atuendo de Animadora"){
+        clothesImage.setAttribute("src", "../images/cuerpo/mujer/atuendo-animadora.png");
+    }
+    else if(clothesStyle == "Blusa Rosada"){
+        clothesImage.setAttribute("src", "../images/cuerpo/mujer/blusa-rosa.png");
+    }
+    else if(clothesStyle == "Vestido de Animadora"){
+        clothesImage.setAttribute("src", "../images/cuerpo/mujer/vestido-animadora.png");
+    }
+    else if(clothesStyle == "Vestido Negro"){
+        clothesImage.setAttribute("src", "../images/cuerpo/mujer/vestido-negro.png");
+    }
+    else if(clothesStyle == "Vestido Rosa"){
+        clothesImage.setAttribute("src", "../images/cuerpo/mujer/vestido-rosa.png");
+    }
+
 }
 const selectElementclothesStyle = document.getElementById('clothesStyle');
     selectElementclothesStyle.addEventListener('change', function () {
