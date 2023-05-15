@@ -133,3 +133,31 @@ const selectElementclothesStyle = document.getElementById('clothesStyle');
     changeClothesImage();
 });
 
+function changeAccessoriesImage() {
+    var accessoriesStyle = document.getElementById("accessoriesStyle").value;
+    var accessoriesImage = document.getElementById("accessoriesImage");
+
+    if (accessoriesStyle == "Ninguno") {
+        accessoriesImage.setAttribute("src", "../images/vacia.png");
+    }else if(accessoriesStyle == "Bandana"){
+        accessoriesImage.setAttribute("src", "../images/sombreros/bandana.png");
+    }else if(accessoriesStyle == "Casco Ninja de Fuego"){
+        accessoriesImage.setAttribute("src", "../images/sombreros/casco-ninja-fuego.png");
+    }else if(accessoriesStyle == "Casco Ninja de hielo"){
+        accessoriesImage.setAttribute("src", "../images/sombreros/casco-ninja-hielo.png");
+    }else if(accessoriesStyle == "Casco"){
+        accessoriesImage.setAttribute("src", "../images/sombreros/casco.png");
+    }else if(accessoriesStyle == "Gorro Ninja de Agua"){
+        accessoriesImage.setAttribute("src", "../images/sombreros/gorro-ninja-agua.png");
+    }else if(accessoriesStyle == "Gorro Ninja de Hielo"){
+        accessoriesImage.setAttribute("src", "../images/sombreros/gorro-ninja-hielo.png");
+    }else if(accessoriesStyle == "Gorro Ninja de Nieve"){
+        accessoriesImage.setAttribute("src", "../images/gorro-para-nieve.png");
+    }else if(accessoriesStyle == "Plumas"){
+        accessoriesImage.setAttribute("src", "../images/sombreros/plumas.png");
+    }
+}
+const selectElementaccessoriesStyle = document.getElementById('accessoriesStyle');
+    selectElementaccessoriesStyle.addEventListener('change', function () {
+        changeAccessoriesImage();
+});
