@@ -1,4 +1,4 @@
-/* Background */
+/* Background---------------------------------------------------------------------------------------------------------------*/
 
 @font-face {
   font-family: 'CustomFont';
@@ -42,7 +42,7 @@ header a {
   text-shadow: 2px 2px #000;
 }
 
-/* Main Content */
+/* Main Content----------------------------------------------------------------------------------------------------------*/
 main {
   display: flex;
   flex-wrap: wrap;
@@ -179,6 +179,70 @@ input::placeholder {
   font-size: 25px;
 }
 
+
+/*Formato de las Imagenes---------------------------------------------------------------------------------------------------*/
+
+.contenedor-imagenes {
+
+    position: relative;
+}
+
+.contenedor-imagenes img {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.contenedor-imagenes img:nth-child(1) {
+    z-index: 1;
+}
+
+.contenedor-imagenes img:nth-child(2) {
+    z-index: 2;
+}
+
+.contenedor-imagenes img:nth-child(3) {
+    z-index: 3;
+}
+
+.contenedor-imagenes img:nth-child(4) {
+    z-index: 4;
+}
+
+.col-md-6{
+  font-family: 'CustomFont';
+  font-size: 30px;
+  text-shadow: 2px 2px #000;
+}
+
+.form-control{
+  background: rgb(35, 35, 35);
+  background: linear-gradient(90deg, rgba(7,255,252,1) 0%, rgba(21,221,236,1) 36%, rgba(2,0,36,1) 71%);
+  font-size: 20px;
+}
+
+#skinStyle option {
+  background-color: rgb(35, 35, 35);
+  color: white;
+  text-shadow: 2px 2px #000;
+  font-size: 20px;
+}
+#hairStyle option {
+  background-color: rgb(35, 35, 35);
+  color: white;
+  text-shadow: 2px 2px #000;
+}
+#clothesStyle option {
+  background-color: rgb(35, 35, 35);
+  color: white;
+  text-shadow: 2px 2px #000;
+  direction:ltr;
+}
+
+#accessoriesStyle option {
+  background-color: rgb(35, 35, 35);
+  color: white;
+  text-shadow: 2px 2px #000;
+  
 .div-form-login p {
   font-size: 25px;
-}
