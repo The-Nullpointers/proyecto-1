@@ -159,6 +159,11 @@ footer a {
   width: 100%;
 }
 
+
+.error_message{
+  font-size: 50px;
+}
+
 .title-with-image {
   display: flex;
   align-items: center;
@@ -173,6 +178,7 @@ input::placeholder {
   font-family: 'CustomFont';
   font-size: 25px;
 }
+
 
 /*Formato de las Imagenes---------------------------------------------------------------------------------------------------*/
 
@@ -237,4 +243,6 @@ input::placeholder {
   background-color: rgb(35, 35, 35);
   color: white;
   text-shadow: 2px 2px #000;
-}
+  
+.div-form-login p {
+  font-size: 25px;
