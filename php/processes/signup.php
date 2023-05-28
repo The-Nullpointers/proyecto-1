@@ -28,21 +28,24 @@
         exit();
     }
 
-    $query = "SELECT * FROM AVATARCREATOR.USERS WHERE USERNAME = '$username'";
+    $query = "SELECT * FROM AVATARCREATOR_DBA.USERS WHERE USERNAME = '$username'";
+    $stid = oci_parse($conn, $query);
+    oci_execute($stid);
 
-    $user_conn = $conn->query($query);
-
-    if($user_conn->num_rows>=1){
+    if($row = oci_fetch_array($stid, OCI_ASSOC)){
 
         $error = "(!) Este usuario ya existe";
 
         echo "<script>signup_error('" . $error . "');</script>";
         
 
-    }else{
-        $query = "INSERT AVATARCREATOR.USERS VALUES ('$username', MD5('$password'), 0)";
+    } else {
+        $passcaps = strtoupper(md5($password));
+        $query = "BEGIN AVATARCREATOR_DBA.INSERT_INTO_USERS('$username', '$passcaps'); END;";
+        $stid = oci_parse($conn, $query);
+        $result = oci_execute($stid);
 
-        if($user_conn = $conn->query($query) === true){
+        if($result === true){
             require_once "login.php";
         }
         else{
