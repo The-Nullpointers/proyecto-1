@@ -63,12 +63,12 @@ function setAvatarID(n){
 changeColor.addEventListener("change", ChangeColor);
 
 var ChangeColor = function(){
-    var selectedOption = changeColor.options[changeColor.selectedIndex];
-    var selectedName = selectedOption.text;
+  var selectedOption = changeColor.options[changeColor.selectedIndex];
+  var selectedName = selectedOption.text;
 
-    var imagePath = "../images/penguins/" + selectedName;
-    imagePath = imagePath.replace(/ /g, "-");
-    document.getElementById("skinImage").src = imagePath;
+  var imagePath = "../images/penguins/" + selectedName;
+  imagePath = imagePath.replace(/ /g, "-");
+  document.getElementById("skinImage").src = imagePath;
 }
 
 //CHANGE HAIR
