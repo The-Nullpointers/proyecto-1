@@ -1,4 +1,5 @@
 <?php
+
 	// MYSQL CONNECTION
 	/*
 	$servername = "localhost";
@@ -14,7 +15,6 @@
 	*/
 	
 	//ORACLE CONECTION
-	
 	$host = 'localhost';
 	$port = 1521; // Replace with your Oracle database port number
 	$sid = 'xe'; // Replace with your Oracle database SID
