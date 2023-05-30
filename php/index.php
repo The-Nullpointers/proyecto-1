@@ -53,17 +53,19 @@
 </footer>
 
 <?php
-if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['submit'])) {
-  require_once "processes/connect.php";
+  require_once "processes/savecosmetics.php";
 
-  if ($_POST['submit'] == 'login') {
-    require_once "processes/login.php";
-  } else if ($_POST['submit'] == 'signup') {
-    if (isset($_POST['confirm_password'])) {
-      require_once "processes/signup.php";
+  if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['submit'])) {
+    require_once "processes/connect.php";
+
+    if ($_POST['submit'] == 'login') {
+      require_once "processes/login.php";
+    } else if ($_POST['submit'] == 'signup') {
+      if (isset($_POST['confirm_password'])) {
+        require_once "processes/signup.php";
+      }
     }
   }
-}
 ?>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
