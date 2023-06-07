@@ -224,7 +224,7 @@ BEGIN
     FROM DUAL WHERE ROWNUM = 1;
     
 END;
-/
+/*
 DECLARE
   CURSOR USER_LOGIN (v_username VARCHAR2, v_password VARCHAR2) IS
     SELECT * FROM AVATARCREATOR_DBA.USERS WHERE USERNAME = v_username AND PASSWORD = v_password;
@@ -235,7 +235,7 @@ BEGIN
   CLOSE USER_LOGIN;
 END;
 /
-/*
+
 DECLARE
       CURSOR user_cursor (v_username VARCHAR2, v_password VARCHAR2) IS
         SELECT *
