@@ -29,7 +29,7 @@ function addCard(){
       </div>
       <img src="../images/vacia.png" class="card-img" alt="Pinguino" id="image-avatar-${nAvatares}">
       <div class="card-body">
-        <button onclick="editCard(${nAvatares})" class="btn btn-primary" id="btn-edit-${nAvatares}">Editar</button>
+        <button onclick="editCard(${nAvatares})" class="btn btn-primary button-81" id="btn-edit-${nAvatares}" >Editar</button>
       </div>
     </div>
   `;
