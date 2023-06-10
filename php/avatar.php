@@ -15,6 +15,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/avatar.js"></script>
     <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 </head>
 <body>
@@ -42,33 +43,33 @@
                 <h2>Personalización</h2>
                 <div class="form-group">
                     <label for="skinColor">Color:</label>
-                    <select class="form-control" id="skinStyle">
+                    <select class="form-control" id="skinStyle" onchange="ChangeColor()">
 
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="aspect">Vestimenta:</label>
-                    <select class="form-control" id="clothesStyle">
+                    <select class="form-control" id="clothesStyle" onchange="ChangeTorso()">
 
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="hairStyle">Estilo de pelo:</label>
-                    <select class="form-control" id="hairStyle">
+                    <select class="form-control" id="hairStyle" onchange="ChangeHair()">
 
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="accessories">Accesorios:</label>
-                    <select class="form-control" id="accessoriesStyle">
+                    <select class="form-control" id="accessoriesStyle" onchange="ChangeAccessory()">
 
                     </select>
                 </div>
                 <br>
                 <center>
-                    <button class="btn button-29" id="randomAvatar">Aleatorio</button>
-                    <button class="btn button-29" id="saveAvatar">Guardar & Salir</button>
-                    <button class="btn button-28" id="downloadAvatar">Descargar</button>
+                    <button class="btn button-29" id="randomAvatar" onclick="RandomAvatar()">Aleatorio</button>
+                    <button class="btn button-29" id="saveAvatar" onclick="SaveAvatar()">Guardar & Salir</button>
+                    <button class="btn button-28" id="downloadAvatar" onclick="DownloadAvatar()">Descargar</button>
                 </center>
             </div>
         </div>
@@ -85,11 +86,9 @@
     <footer>
         <p>&copy; 2023 The NullPointer's Avatar Creator.</p>
     </footer>
-    <script src="../js/avatar.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <?php
-        require_once "processes/savecosmetics.php";
         require_once "processes/loadcosmetics.php";
         require_once "processes/loadAvatar.php";
     ?>

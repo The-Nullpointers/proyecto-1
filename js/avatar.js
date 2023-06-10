@@ -1,6 +1,11 @@
+var AvatarID = 0;
+var changeColor = null;
+var changeHair = null;
+var changeClothes = null;
+var changeAccessory = null;
+
 function LoadColors(name){
   var select = document.getElementById('skinStyle');
-
   name = name.slice(0, -4);
   name = name.replace(/-/g, " ");
   var option = document.createElement('option');
@@ -46,23 +51,13 @@ function LoadAccessories(name){
   select.appendChild(option);
 }
 
-var changeHair = document.getElementById("hairStyle");
-var changeClothes = document.getElementById("clothesStyle");
-var changeColor = document.getElementById("skinStyle");
-var changeAccessory = document.getElementById("accessoriesStyle");
-var randomAvatar = document.getElementById("randomAvatar");
-var downloadAvatar = document.getElementById("downloadAvatar");
-var saveAvatar = document.getElementById("saveAvatar");
-var AvatarID = 0;
-
 function setAvatarID(n){
   AvatarID = n;
 }
 
-//CHANGE COLOR
-changeColor.addEventListener("change", ChangeColor);
-
-var ChangeColor = function(){
+function ChangeColor(){
+  console.log("COLOR");
+  changeColor = document.getElementById("skinStyle");
   var selectedOption = changeColor.options[changeColor.selectedIndex];
   var selectedName = selectedOption.text;
 
@@ -71,35 +66,29 @@ var ChangeColor = function(){
   document.getElementById("skinImage").src = imagePath;
 }
 
-//CHANGE HAIR
-changeHair.addEventListener("change", ChangeHair);
-
 var ChangeHair = function(){
 
-    var selectedOption = changeHair.options[changeHair.selectedIndex];
-    var selectedName = selectedOption.text;
+  var changeHair = document.getElementById("hairStyle");
+  var selectedOption = changeHair.options[changeHair.selectedIndex];
+  var selectedName = selectedOption.text;
 
-    var imagePath = "../images/hair/" + selectedName;
-    imagePath = imagePath.replace(/ /g, "-");
-    document.getElementById("hairImage").src = imagePath;
+  var imagePath = "../images/hair/" + selectedName;
+  imagePath = imagePath.replace(/ /g, "-");
+  document.getElementById("hairImage").src = imagePath;
 }
-
-//CHANGE TORSO
-changeClothes.addEventListener("change", ChangeTorso);
 
 var ChangeTorso = function(){
-    var selectedOption = changeClothes.options[changeClothes.selectedIndex];
-    var selectedName = selectedOption.text;
+  var changeClothes = document.getElementById("clothesStyle");
+  var selectedOption = changeClothes.options[changeClothes.selectedIndex];
+  var selectedName = selectedOption.text;
 
-    var imagePath = "../images/clothes/" + selectedName;
-    imagePath = imagePath.replace(/ /g, "-");
-    document.getElementById("clothesImage").src = imagePath;
+  var imagePath = "../images/clothes/" + selectedName;
+  imagePath = imagePath.replace(/ /g, "-");
+  document.getElementById("clothesImage").src = imagePath;
 }
 
-//CHANGE ACCESSORY
-changeAccessory.addEventListener("change", ChangeAccessory);
-
 var  ChangeAccessory = function(){
+  var changeAccessory = document.getElementById("accessoriesStyle");
   var selectedOption = changeAccessory.options[changeAccessory.selectedIndex];
   var selectedName = selectedOption.text;
   console.log("test");
@@ -109,9 +98,12 @@ var  ChangeAccessory = function(){
   document.getElementById("accessoriesImage").src = imagePath;
 }
 
-randomAvatar.addEventListener('click', RandomAvatar);
+function RandomAvatar (){
+  changeColor = document.getElementById('skinStyle');
+  changeHair = document.getElementById('hairStyle');
+  changeClothes = document.getElementById('clothesStyle');
+  changeAccessory = document.getElementById('accessoriesStyle');
 
-var RandomAvatar = function(){
   var nColor = changeColor.options.length;
   var nHair = changeHair.options.length;
   var nClothes = changeClothes.options.length;
@@ -163,10 +155,9 @@ var RandomAvatar = function(){
   ChangeAccessory();
 }
 
-downloadAvatar.addEventListener('click', DownloadAvatar);
 
-
-var DownloadAvatar = function() {
+function DownloadAvatar() {
+  
   var container = document.getElementById('penguin');
 
   // Take and adjust the canvas height to the penguin image
@@ -231,6 +222,7 @@ function loadAvatar(color, clothes, hair, accessory){
   accessory = accessory.slice(0, -4);
   accessory = accessory.replace(/-/g, " ");
 
+  var changeColor = document.getElementById("skinStyle");
   for (var i = 0; i < changeColor.options.length; i++) {
     if (changeColor.options[i].value === color) {
         changeColor.options[i].selected = true;
@@ -238,6 +230,7 @@ function loadAvatar(color, clothes, hair, accessory){
     }
   }
 
+  var changeClothes = document.getElementById("clothesStyle");
   for (var i = 0; i < changeClothes.options.length; i++) {
     if (changeClothes.options[i].value === clothes) {
         changeClothes.options[i].selected = true;
@@ -245,6 +238,7 @@ function loadAvatar(color, clothes, hair, accessory){
     }
   }
 
+  var changeHair = document.getElementById("hairStyle");
   for (var i = 0; i < changeHair.options.length; i++) {
     if (changeHair.options[i].value === hair) {
         changeHair.options[i].selected = true;
@@ -252,6 +246,7 @@ function loadAvatar(color, clothes, hair, accessory){
     }
   }
 
+  var changeAccessory = document.getElementById("accessoriesStyle");
   for (var i = 0; i < changeAccessory.options.length; i++) {
     if (changeAccessory.options[i].value === accessory) {
         changeAccessory.options[i].selected = true;
@@ -265,9 +260,12 @@ function loadAvatar(color, clothes, hair, accessory){
   ChangeAccessory();
 }
 
-saveAvatar.addEventListener('click', SaveAvatar);
+function SaveAvatar (){
 
-var SaveAvatar = function(){
+  changeColor = document.getElementById('skinStyle');
+  changeHair = document.getElementById('hairStyle');
+  changeClothes = document.getElementById('clothesStyle');
+  changeAccessory = document.getElementById('accessoriesStyle');
 
   var colorSelected = changeColor.value;
   var hairSelected = changeHair.value;
@@ -297,6 +295,9 @@ var SaveAvatar = function(){
 
   window.location.href = 'dashboard.php';
 }
+
+
+
 
 
 
