@@ -7,11 +7,18 @@
     $confirm_password = ($_POST['confirm_password']);
 
     $pattern = '/^(?=.*[a-zA-Z].*[a-zA-Z].*[a-zA-Z].*[a-zA-Z])[a-zA-Z\d]*$/';
+    $pattern2 = '/^[a-zA-Z0-9]+$/';
 
     //ADD TO ALLOW ONLY USERNAMES CONTAINING AT LEAST 4 LETTERS
 
     if(!preg_match($pattern, $username)){
         $error = "(!) El usuario debe tener al menos 4 letras y no caracteres especiales";
+        echo "<script>signup_error('" . $error . "');</script>";
+        exit();
+    }
+
+    if(!preg_match($pattern2, $password)){
+        $error = "(!) La contraseña debe ser solo letras y numeros";
         echo "<script>signup_error('" . $error . "');</script>";
         exit();
     }
