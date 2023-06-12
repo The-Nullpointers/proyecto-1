@@ -224,36 +224,54 @@ BEGIN
     FROM DUAL WHERE ROWNUM = 1;
     
 END;
-/*
+/
+SET SERVEROUTPUT ON;
 DECLARE
-  CURSOR USER_LOGIN (v_username VARCHAR2, v_password VARCHAR2) IS
-    SELECT * FROM AVATARCREATOR_DBA.USERS WHERE USERNAME = v_username AND PASSWORD = v_password;
-    user_record AVATARCREATOR_DBA.USERS%ROWTYPE;
+  CURSOR avatar_cur IS
+    SELECT ID_AVATAR, USERNAME, ID_COLOR, ID_HEAD, ID_TORSO, ID_ACCESSORY FROM AVATARS;
+  TYPE avatar_rec_type IS RECORD (
+    ID_AVATAR AVATARS.ID_AVATAR%TYPE,
+    USERNAME AVATARS.USERNAME%TYPE,
+    ID_COLOR AVATARS.ID_COLOR%TYPE,
+    ID_HEAD AVATARS.ID_HEAD%TYPE,
+    ID_TORSO AVATARS.ID_TORSO%TYPE,
+    ID_ACCESSORY AVATARS.ID_ACCESSORY%TYPE,
+    COLOR_NAME COLORS.COLOR_NAME%TYPE,
+    HEAD_NAME HEADS.HEAD_NAME%TYPE,
+    TORSO_NAME TORSOS.TORSO_NAME%TYPE,
+    ACCESSORY_NAME ACCESSORIES.ACCESSORY_NAME%TYPE
+  );
+  avatar_rec avatar_rec_type;
 BEGIN
-  OPEN USER_LOGIN(:username, :password);
-  FETCH USER_LOGIN INTO user_record;
-  CLOSE USER_LOGIN;
+  OPEN avatar_cur;
+  LOOP
+    FETCH avatar_cur INTO avatar_rec.ID_AVATAR, avatar_rec.USERNAME,
+                         avatar_rec.ID_COLOR, avatar_rec.ID_HEAD,
+                         avatar_rec.ID_TORSO, avatar_rec.ID_ACCESSORY;
+
+    EXIT WHEN avatar_cur%NOTFOUND;
+
+    -- Fetch the corresponding names from related tables
+    SELECT COLOR_NAME INTO avatar_rec.COLOR_NAME FROM COLORS WHERE ID_COLOR = avatar_rec.ID_COLOR;
+    SELECT HEAD_NAME INTO avatar_rec.HEAD_NAME FROM HEADS WHERE ID_HEAD = avatar_rec.ID_HEAD;
+    SELECT TORSO_NAME INTO avatar_rec.TORSO_NAME FROM TORSOS WHERE ID_TORSO = avatar_rec.ID_TORSO;
+    SELECT ACCESSORY_NAME INTO avatar_rec.ACCESSORY_NAME FROM ACCESSORIES WHERE ID_ACCESSORY = avatar_rec.ID_ACCESSORY;
+
+    -- Print the results
+    DBMS_OUTPUT.PUT_LINE('ID_AVATAR: ' || avatar_rec.ID_AVATAR ||
+                         ', USERNAME: ' || avatar_rec.USERNAME ||
+                         ', COLOR_NAME: ' || avatar_rec.COLOR_NAME ||
+                         ', HEAD_NAME: ' || avatar_rec.HEAD_NAME ||
+                         ', TORSO_NAME: ' || avatar_rec.TORSO_NAME ||
+                         ', ACCESSORY_NAME: ' || avatar_rec.ACCESSORY_NAME);
+  END LOOP;
+  CLOSE avatar_cur;
 END;
 /
 
-DECLARE
-      CURSOR user_cursor (v_username VARCHAR2, v_password VARCHAR2) IS
-        SELECT *
-        FROM AVATARCREATOR_DBA.USERS
-        WHERE USERNAME = v_username AND PASSWORD = v_password;
-      user_record AVATARCREATOR_DBA.USERS%ROWTYPE;
-    BEGIN
-      OPEN user_cursor(:username, :password);
-      FETCH user_cursor INTO user_record;
-      CLOSE user_cursor;
-    
-      IF user_cursor%FOUND THEN
-        :cursor_result := user_record;
-      ELSE
-        :cursor_result := NULL;
-      END IF;
-    END;
-*/
+
+
+
 
 
 
